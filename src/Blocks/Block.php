@@ -65,8 +65,8 @@ class Block
         if ($blockType && $blockType->isDynamic()) {
             $output = call_user_func($blockType->renderCallback, $this->attributes, $output, $this);
         }
-
-        if ($this->blockName === 'core/embed') {
+        
+        if (strpos($this->blockName, 'core-embed') !== false) {
             $output = $this->embed($output);
         }
 
